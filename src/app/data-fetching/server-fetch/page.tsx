@@ -1,3 +1,6 @@
+// default fetch() -> caches response automatically
+// cache -> reload, force-cache, no-store
+
 interface Product {
   id: number;
   title: string;
@@ -11,7 +14,14 @@ interface ProductsResponse {
 }
 
 const getProducts = async (): Promise<ProductsResponse> => {
-  const response = await fetch("https://dummyjson.com/products");
+  const response = await fetch("https://dummyjson.com/products", {
+    cache: "no-store",
+  });
+  //   no-store -> the response is never cached, will always get fresh data from source
+  //   force-cache -> looks in cache store first, if not availalble will get data from source,
+  //   if available will return from cache
+  //    reload -> will get fresh data from source and will update the cache store
+
   if (!response.ok) {
     throw new Error("Failed to get Products");
   }
