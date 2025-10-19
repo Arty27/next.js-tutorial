@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 // You cannot
 // use hooks -> not possible
-// cannot use events
+// cannot use events without use client keyword on top of the file
 
 export default function Home() {
   const router = useRouter();
