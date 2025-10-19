@@ -14,9 +14,6 @@ const page = () => {
   const handleNavigate = () => {
     router.push("/");
   };
-  console.log(router);
-  console.log(pathName);
-  console.log(searchParams);
   console.log(searchParams.get("name")); // profile?name=artemins o/p= artemis
   console.log(searchParams.getAll("name")); // profile?name=artemis&name=fowl
   console.log(searchParams.has("name")); // true
